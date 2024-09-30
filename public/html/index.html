@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/task.css">
+</head>
+<body>
+    <div class="task-manager-container">
+        <div class="task-fields">
+            <!-- Task Input -->
+            <div class="field-row">
+                <img src="file-icon.png" alt="File Icon" class="icon">
+                <input type="text" id="task-input" placeholder="Task Name">
+                <span class="close">&times;</span>
+            </div>
+
+            <!-- Timer and Notification -->
+            <div class="field-row">
+                <img src="timer-icon.png" alt="Timer Icon" class="icon">
+                <span class="notification-text">1 Hour</span>
+                <button class="rect-button">1 Hour</button>
+                <img src="plus-icon.png" alt="Add" class="icon plus-icon" id="add-timer">
+            </div>
+
+            <!-- Notification -->
+            <div class="field-row">
+                <img src="notification-icon.png" alt="Notification Icon" class="icon">
+                <span class="notification-text">Notification</span>
+                <button class="rect-button">1 Hour</button>
+                <img src="plus-icon.png" alt="Add" class="icon plus-icon" id="add-notification">
+                <span class="add-text">Add Notification</span>
+            </div>
+
+            <!-- Priority -->
+            <div class="field-row">
+                <img src="priority-icon.png" alt="Priority Icon" class="icon">
+                <select id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <img src="plus-icon.png" alt="Add" class="icon plus-icon" id="add-priority">
+                <span class="add-text">Add Priority</span>
+            </div>
+
+            <!-- Tags -->
+            <div class="field-row">
+                <img src="tags-icon.png" alt="Tags Icon" class="icon">
+                <span class="tags-text">Tags</span>
+                <img src="plus-icon.png" alt="Add" class="icon plus-icon" id="add-tags">
+                <span class="add-text">Add Tags</span>
+            </div>
+
+            <!-- Estimated Time -->
+            <div class="field-row">
+                <img src="time-icon.png" alt="Estimated Time Icon" class="icon">
+                <span class="estimated-time-text">Estimated Time</span>
+                <img src="plus-icon.png" alt="Add" class="icon plus-icon" id="add-estimated-time">
+                <span class="add-text">Add Estimated Time</span>
+            </div>
+
+            <!-- Description -->
+            <div class="field-row">
+                <span class="description-text">Description</span>
+            </div>
+            <textarea id="description-box" placeholder="Description..." rows="4"></textarea>
+        </div>
+
+        <!-- Create Task Button -->
+        <div class="create-task-container">
+            <button class="create-task-button">Create Task</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="dialog-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

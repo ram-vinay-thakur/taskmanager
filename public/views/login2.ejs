@@ -1,0 +1,31 @@
+<!-- registerStep2.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Step 2</title>
+</head>
+<body>
+    <h1>Register - Step 2: Enter Personal Details</h1>
+    <form action="/user/register/userInfo" method="POST" enctype="multipart/form-data">
+        <label for="name">Full Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" name="DOB" id="DOB" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">ladder</option>
+        </select>
+
+        <label for="avatar">Avatar:</label>
+        <input type="file" name="avatar" id="avatar">
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

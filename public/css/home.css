@@ -1,0 +1,252 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Updated font */
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 100vh;
+    font-weight: 300; /* Reduced font weight */
+}
+
+/* Main Layout Adjustment */
+.container {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    margin: 10px;
+    width: 15vw;
+    border: 1px solid #5b5a5a;
+}
+
+/* User Container */
+.user-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* User Avatar */
+.user-avatar {
+    margin-bottom: 15px;
+}
+
+.user-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+/* Username */
+.username h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Task Controls */
+.task-controls-ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.task-views {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    padding: 5px;
+    border-radius: 5px;
+    width: 15vw;
+    transition: background-color 0.3s;
+}
+
+.task-views:hover {
+    background-color: #333;
+}
+
+.task-views:active{
+    border-right: 3px solid #66b065;
+}
+
+.task-views img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.task-control-text {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Task Container */
+.task-container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 80vw;
+    border: 1px solid #5b5a5a;
+}
+
+/* Task Header */
+.tast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.task-main-create{
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid #888888;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Create Task Button */
+.create-task button {
+    background: #2a2a2a;
+    border: 1px solid #888888;
+    cursor: pointer;
+}
+
+.create-task img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Task List */
+.tast-containing-conts {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four-column grid */
+    gap: 15px; /* Space between task boxes */
+}
+
+
+.tasks {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px); /* Making tasks wider */
+    height: auto;
+    border: 1px solid #5b5a5a;
+}
+
+.add-task-default{
+    background-color: transparent;
+    border:dotted;
+    border-color: #888888;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: c;
+}
+/* Task Elements */
+.task-title {
+    font-size: 0.85em; /* Smaller font size */
+    color: #cccccc; /* Grayish text */
+    margin: 2px 0; /* Reduced margin */
+}
+
+.task-description {
+    font-size: 10px;
+    color: #aaaaaa; /* Light gray text */
+    margin: 2px 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.task-date {
+    margin: 2px 0;
+    font-weight: bold;
+}
+
+.task-date-text {
+    font-size: 10px;
+    color: #888888; /* Even lighter gray for date */
+}
+
+/* Task Edit Controls */
+.task-edit-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.task-status {
+    background-color: #66b065;
+    color: #ffffff;
+    padding: 10px 15px; /* Adjusted padding */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.task-main-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.task-main-controls img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Custom Scrollbar for Webkit Browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e; /* Scrollbar track background */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 10px;
+}
+
+/* Scrollbar hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker thumb on hover */
+}

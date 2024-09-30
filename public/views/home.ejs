@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="user-container">
+            <div class="user-avatar">
+                <img src="<%= user.avatar[1] %>" alt="" id="user-avatar">
+            </div>
+            <div class="username">
+                <h2 id="user-name" class="user-name"><%= user.name %></h2>
+            </div>
+        </div>
+        <div class="tasks-view">
+            <nav class="task-controls-nav">
+                <ul class="task-controls-ul">
+                    <li>
+                        <div class="task-views all-tasks">
+                            <img src="../assets/home.svg" alt="">
+                            <button class="task-control-text">All Tasks</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task-views important">
+                            <img src="../assets/list.svg" alt="">
+                            <button class="task-control-text">important</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task-views completed">
+                            <img src="../assets/completed.svg" alt="">
+                            <button class="task-control-text">Completed</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task-views do-it-now">
+                            <img src="../assets/do it now.svg" alt="">
+                            <button class="task-control-text">Do it Now</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="task-container">
+        <header class="tast-header">
+            <div class="task-text">
+                All Tasks
+            </div>
+            <div class="create-task">
+                <button class="task-main-create"><img src="../assets/9024889_plus_light_icon.svg" alt=""></button>
+            </div>
+        </header>
+        <ul class="tast-containing-conts">
+            <li class="tasks">
+                <div class="task-title task-texts">
+                    <h2 class="task-main-title">Update Passwords</h2>
+                </div>
+                <div class="task-description">
+                    <h3 class="task-main-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, et vero! Dolorem fugiat quisquam animi in ut! Tempora, hic amet ea doloremque eius harum repellat provident temporibus doloribus voluptate enim.
+                    </h3>
+                </div>
+                <div class="task-date">
+                    <h3 class="task-date-text">2020-01-01</h3>
+                </div>
+                <div class="task-edit-controls">
+                    <div class="task-status">Completed</div>
+                    <div class="task-main-controls">
+                        <button class="task-edit">
+                            <img src="../assets/edit.svg" alt="">
+                        </button>
+                        <button class="task-delete">
+                            <img src="../assets/delete.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li class="tasks add-task-default" style="cursor: pointer;">
+                <button style="background-color: transparent; border: none; cursor: pointer;"><img src="../assets/plus.svg" alt="" width="100px" style="color: aliceblue;"></button>
+            </li>
+        </ul>
+    </div>
+    <script src="../js/home.js"></script>
+</body>
+</html>
