@@ -29,13 +29,13 @@ app.use(cookieParser());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false, // Change to false to avoid empty sessions
     store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/mydb' }),
     cookie: { 
-        secure: false, 
-        maxAge: 1000 * 60 * 60 ,
-        sameSite:'strict',
-        httpOnly:true   
+        secure: false, // Set to true if using HTTPS
+        maxAge: 1000 * 60 * 60, // 1 hour
+        sameSite: 'strict',
+        httpOnly: true   
     },
 }));
 

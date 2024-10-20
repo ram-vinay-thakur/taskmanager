@@ -250,3 +250,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Darker thumb on hover */
 }
+
+.task-add-container {
+    display: flex;
+}

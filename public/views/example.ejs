@@ -3,10 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .profile-container {
+            margin-bottom: 20px;
+        }
+        .tasks-view {
+            margin-top: 10px;
+        }
+        .task-container {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-creation-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 500px; /* Maximum width */
+            border-radius: 5px; /* Rounded corners */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .task-title, .task-description {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h2><%= title %></h2>
-    <p><%= message %></p>
+    <div class="profile-container">
+        <h1>Task Manager</h1>
+    </div>
+    <div class="task-container">
+        <header class="task-header">
+            <div class="task-text">All Tasks</div>
+            <button class="task-main-create">Create Task</button>
+        </header>
+        <ul class="task-list">
+            <li class="tasks">
+                <div class="task-title">Example Task</div>
+                <div class="task-description">This is an example task description.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Task Creation Modal -->
+    <div class="task-creation-modal" id="taskCreationModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Create New Task</h2>
+            <input type="text" id="taskTitle" placeholder="Task Title" required autofocus>
+            <button id="submitTask">Create Task</button>
+        </div>
+    </div>
+
+    <script>
+        // Select elements
+        const createTaskButton = document.querySelector('.task-main-create');
+        const modal = document.getElementById('taskCreationModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const taskTitleInput = document.getElementById('taskTitle');
+        const submitTaskButton = document.getElementById('submitTask');
+        const taskList = document.querySelector('.task-list');
+
+        // Function to open modal
+        createTaskButton.addEventListener('click', function () {
+            modal.style.display = 'block'; // Show the modal
+            taskTitleInput.focus(); // Focus the input
+        });
+
+        // Function to close modal when clicking on <span> (x)
+        closeModalButton.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        // Function to close modal when clicking outside of the modal
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Add task functionality
+        submitTaskButton.addEventListener('click', function () {
+            const taskTitle = taskTitleInput.value;
+            if (taskTitle) {
+                // Create new task element
+                const newTask = document.createElement('li');
+                newTask.className = 'tasks';
+                newTask.innerHTML = `<div class="task-title">${taskTitle}</div>`;
+                taskList.appendChild(newTask);
+
+                // Clear input and close modal
+                taskTitleInput.value = '';
+                modal.style.display = 'none';
+            } else {
+                alert('Please enter a task title.');
+            }
+        });
+    </script>
 </body>
 </html>
