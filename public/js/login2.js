@@ -6,7 +6,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
 
     fetch('/user/register/userInfo', {
         method: 'POST',
-        body: formData // Send the FormData object
+        body: formData, // Send the FormData object
     })
         .then(response => {
             if (response.ok) {
@@ -15,8 +15,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
             throw new Error('Network response was not ok.');
         })
         .then(data => {
-            window.location.href = '/'
-            console.log('Success:', data); // Handle success
+            window.location.href = `/`;
         })
         .catch((error) => {
             console.error('Error:', error); // Handle error

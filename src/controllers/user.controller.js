@@ -19,8 +19,8 @@ const registerEmail = async function (req, res) {
 
         const newUser = new userModel({ email, password });
         await newUser.save({ validateBeforeSave: false })
+        req.session.startedRegistration = true;
         req.session.userId = newUser._id;
-
         return res.status(201).json(new ApiResponse(201, null, 'ok'));
     } catch (error) {
         console.error(error);
@@ -30,6 +30,7 @@ const registerEmail = async function (req, res) {
 
 const registerUserInfo = async function (req, res) {
     try {
+        console.log(req.body, req.file)
         const { name, DOB, gender } = req.body;
 
         const avatar = req.file.path;
@@ -37,6 +38,7 @@ const registerUserInfo = async function (req, res) {
         const avatarArr = [cloudinaryupload.public_id, cloudinaryupload.url];
 
         const userId = req.session.userId;
+        console.log(userId)
         if (!userId) {
             return res.status(400).json(new ApiError(400, "Error!"));
         }
@@ -44,6 +46,7 @@ const registerUserInfo = async function (req, res) {
         if (!name || !DOB || !gender) {
             return res.status(400).json(new ApiError(400, "Name, Date of Birth, and Gender are required."));
         }
+
 
         const updatedUser = await userModel.findByIdAndUpdate(
             userId,
@@ -55,7 +58,8 @@ const registerUserInfo = async function (req, res) {
             return res.status(404).json(new ApiError(404, "User not found."));
         }
         const saved_user = await userModel.findById(userId).select(" -password -refreshToken ");
-
+        req.session.completedRegistration = true;
+        req.session.userId = saved_user._id;
         return res.status(200).json(new ApiResponse(200, saved_user, "User information updated successfully."));
     } catch (error) {
         console.error(error);

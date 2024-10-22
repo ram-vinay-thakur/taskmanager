@@ -35,7 +35,8 @@ app.use(session({
         secure: false, // Set to true if using HTTPS
         maxAge: 1000 * 60 * 60, // 1 hour
         sameSite: 'strict',
-        httpOnly: true   
+        httpOnly: true   ,
+        priority:'High',
     },
 }));
 
