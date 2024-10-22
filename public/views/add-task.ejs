@@ -1,63 +1,67 @@
-<div class="task-add-container">
-    <div class="task-name-add-container">
-        <img src="create image" alt="">
-        <input type="text" name="title" id="task-title">
-        <button class="close-task-cont"><img src="close" alt=""></button>
-    </div>
-    <div class="task-attributes">
-        <div class="task-start">
-            <img src="timer-img" alt="">
-            <button class="task-attribute-time today">Today</button>
-            <button class="task-attribute-time tomorrow">Tomorrow</button>
-            <button class="plus-add-more addmore">
-                <img src="plus-icon" alt="">
+<!-- Add Task Modal -->
+<div class="hid fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" id="modal">
+    <div class="modal-content bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="task-name-add-container flex items-center mb-4">
+            <img src="create-image" alt="Create Task" class="w-6 h-6 mr-2">
+            <input type="text" name="title" id="task-title" placeholder="Task Title"
+                class="flex-grow h-10 px-4 border border-gray-600 rounded focus:outline-none focus:ring focus:ring-yellow-500 bg-gray-900 text-white">
+            <button class="close-task-cont ml-2">
+                <img src="close-icon" alt="Close" class="w-6 h-6">
             </button>
         </div>
-        <div class="notification">
-            <img src="notification" alt="">
-            <button class="task-attribute-time">In 1 Hour</button>
-            <button class="plus-add-more addmore">
-                <img src="plus-icon" alt="">
-            </button>
-        </div>
-        <div class="priority">
-            <img src="priority" alt="">
-            <div class="add-info">
-                <button class="plus-add-more addmore">
-                    <img src="plus-icon" alt="">
+        <div class="task-attributes space-y-4">
+            <div class="task-start flex items-center">
+                <img src="timer-img" alt="Timer" class="w-6 h-6 mr-2">
+                <button class="task-attribute-time today bg-gray-700 text-white py-1 px-3 rounded hover:bg-gray-600 transition">Today</button>
+                <button class="task-attribute-time tomorrow bg-gray-700 text-white py-1 px-3 rounded hover:bg-gray-600 transition">Tomorrow</button>
+                <button class="plus-add-more addmore ml-2">
+                    <img src="plus-icon" alt="Add More" class="w-6 h-6">
                 </button>
-                <h3 class="add-text">Add priority</h3>
             </div>
-        </div>
-        <div class="tags">
-            <img src="tags" alt="">
-            <div class="add-info">
-                <button class="plus-add-more addmore">
-                    <img src="plus-icon" alt="">
+            <div class="notification flex items-center">
+                <img src="notification-icon" alt="Notification" class="w-6 h-6 mr-2">
+                <button class="task-attribute-time bg-gray-700 text-white py-1 px-3 rounded hover:bg-gray-600 transition">In 1 Hour</button>
+                <button class="plus-add-more addmore ml-2">
+                    <img src="plus-icon" alt="Add More" class="w-6 h-6">
                 </button>
-                <h3 class="add-text">Add Tags</h3>
             </div>
-        </div>
-        <div class="completion-time">
-            <img src="completion-icon" alt="">
-            <div class="add-info">
-                <input type="date" name="estimatedTime" id="estimatedTime">
+            <div class="priority flex items-center">
+                <img src="priority-icon" alt="Priority" class="w-6 h-6 mr-2">
+                <div class="add-info flex items-center">
+                    <button class="plus-add-more addmore mr-2">
+                        <img src="plus-icon" alt="Add More" class="w-6 h-6">
+                    </button>
+                    <h3 class="add-text text-gray-400">Add priority</h3>
+                </div>
             </div>
-        </div>
-        <div class="description">
-            <div class="description-text">
-                <h3 class="add-text">
-                    Add description
-                </h3>
+            <div class="tags flex items-center">
+                <img src="tags-icon" alt="Tags" class="w-6 h-6 mr-2">
+                <div class="add-info flex items-center">
+                    <button class="plus-add-more addmore mr-2">
+                        <img src="plus-icon" alt="Add More" class="w-6 h-6">
+                    </button>
+                    <h3 class="add-text text-gray-400">Add Tags</h3>
+                </div>
             </div>
-            <div class="textarea">
-                <textarea name="content" id="content"></textarea>
+            <div class="completion-time flex items-center">
+                <img src="completion-icon" alt="Completion Time" class="w-6 h-6 mr-2">
+                <div class="add-info flex items-center">
+                    <input type="date" name="estimatedTime" id="estimatedTime" class="h-10 px-4 border border-gray-600 rounded focus:outline-none focus:ring focus:ring-yellow-500 bg-gray-900 text-white">
+                </div>
             </div>
-        </div>
-        <div class="submit-task">
-            <button class="submit">
-                <h3>Create Task</h3>
-            </button>
+            <div class="description">
+                <div class="description-text mb-2">
+                    <h3 class="add-text text-gray-400">Add description</h3>
+                </div>
+                <div class="textarea">
+                    <textarea name="content" id="content" class="w-full h-20 p-2 border border-gray-600 rounded focus:outline-none focus:ring focus:ring-yellow-500 bg-gray-900 text-white" placeholder="Write your task description here..."></textarea>
+                </div>
+            </div>
+            <div class="submit-task mt-4">
+                <button class="submit w-full h-12 bg-yellow-500 text-gray-800 rounded hover:bg-yellow-400 transition">
+                    <h3 class="font-bold">Create Task</h3>
+                </button>
+            </div>
         </div>
     </div>
 </div>

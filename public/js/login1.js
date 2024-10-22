@@ -1,6 +1,6 @@
 document.getElementById("registerForm").addEventListener("submit", async function (e) {
     e.preventDefault(); // Prevent the default form submission
-
+    console.log('hello')
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
-    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="/css/task.css">
 </head>
 <body class="bg-gray-900 text-white flex items-stretch justify-center h-screen font-['Roboto']">
     <div class="flex flex-col items-center justify-start p-5 bg-gray-800 rounded-lg border border-gray-600 m-2 w-[15vw]">
@@ -15,27 +16,27 @@
             <h2 id="user-name" class="text-lg"><%= user.name %></h2>
         </div>
         <nav class="w-full">
-            <ul class="list-none flex flex-col p-0 mt-2">
+            <ul class="list-none flex flex-col p-1 mt-2">
                 <li>
-                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[15vw] hover:bg-gray-600 transition">
+                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[12vw] mb-2 hover:bg-gray-600 transition">
                         <img src="../assets/home.svg" alt="" class="w-5 h-5 mr-2">
                         <button class="bg-transparent border-none text-white cursor-pointer">All Tasks</button>
                     </div>
                 </li>
                 <li>
-                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[15vw] hover:bg-gray-600 transition">
+                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[12vw] mb-2 hover:bg-gray-600 transition">
                         <img src="../assets/list.svg" alt="" class="w-5 h-5 mr-2">
                         <button class="bg-transparent border-none text-white cursor-pointer">Important</button>
                     </div>
                 </li>
                 <li>
-                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[15vw] hover:bg-gray-600 transition">
+                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[12vw] mb-2 hover:bg-gray-600 transition">
                         <img src="../assets/completed.svg" alt="" class="w-5 h-5 mr-2">
                         <button class="bg-transparent border-none text-white cursor-pointer">Completed</button>
                     </div>
                 </li>
                 <li>
-                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[15vw] hover:bg-gray-600 transition">
+                    <div class="flex items-center bg-gray-700 rounded-lg p-2 w-[12vw] mb-2 hover:bg-gray-600 transition">
                         <img src="../assets/do it now.svg" alt="" class="w-5 h-5 mr-2">
                         <button class="bg-transparent border-none text-white cursor-pointer">Do it Now</button>
                     </div>
@@ -48,18 +49,18 @@
         <header class="flex justify-between items-center mb-5">
             <div class="text-2xl font-bold">All Tasks</div>
             <div>
-                <button class="flex justify-center items-center w-12 h-12 rounded-full border-2 border-gray-500 shadow-md">
+                <button class="task-main-create flex justify-center items-center w-12 h-12 rounded-full border-2 border-gray-500 shadow-md">
                     <img src="../assets/9024889_plus_light_icon.svg" alt="" class="w-8 h-8">
                 </button>
             </div>
         </header>
         <ul class="list-none grid grid-cols-4 gap-4">
             <li class="bg-gray-700 p-2 rounded-lg border border-gray-600 flex flex-col">
-                <h2 class="text-sm text-gray-300 mb-1">Update Passwords</h2>
+                <h2 class="text-lg text-gray-300 mb-1">Update Passwords</h2>
                 <h3 class="text-xs text-gray-400 mb-1 max-h-40 overflow-y-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, et vero! Dolorem fugiat quisquam animi in ut! Tempora, hic amet ea doloremque eius harum repellat provident temporibus doloribus voluptate enim.</h3>
-                <h3 class="font-bold text-xs text-gray-500">2020-01-01</h3>
+                <h3 class="font-bold text-xs my-0.5 text-gray-200">2020-01-01</h3>
                 <div class="flex justify-between items-center mt-1">
-                    <div class="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-bold">Completed</div>
+                    <div class="bg-green-600 text-white px-3 py-2 rounded-lg text-xs font-bold">Completed</div>
                     <div class="flex">
                         <button class="bg-transparent border-none cursor-pointer">
                             <img src="../assets/edit.svg" alt="" class="w-5 h-5">
@@ -77,8 +78,7 @@
             </li>
         </ul>
     </div>
-
-    <% include('add-task.ejs') %>
+    <%- include('./add-task.ejs') %>
     <script src="../js/home.js"></script>
 </body>
 </html>

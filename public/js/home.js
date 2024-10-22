@@ -1,46 +1,54 @@
-document.addEventListener('DOMContentLoaded', async function () {
-    const getUser = async () => {
-        try {
-            const response = await fetch('/get-user?json=true');
-            console.log('Response Status:', response.status);
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch user data');
-            }
-
-            const data = await response.json();
-            console.log('User Data:', data); // Log the data to see what it contains
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-
-    // Call the function
-    await getUser();
-    // Get the modal element
-    const modal = document.querySelector('.modal');
-
-    // Get the button that opens the modal
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.querySelector('#modal');
     const addTaskBtn = document.querySelector('.task-main-create');
-
-    // Get the <span> element that closes the modal
-    const closeBtn = document.querySelector('.close-btn');
-
-    // When the user clicks the button, open the modal
+    const closeBtn = document.querySelector('.close-task-cont');
+    // Open the modal when the "Add Task" button is clicked
     addTaskBtn.addEventListener('click', () => {
-        modal.style.display = 'block';
+        console.log('hello')
+        modal.classList.remove('hid'); // Show the modal
     });
 
-    // When the user clicks on <span> (x), close the modal
+    // Close the modal when the close button is clicked
     closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
+        modal.classList.add('hid'); // Hide the modal
     });
 
-    // When the user clicks anywhere outside of the modal, close it
+    // Close the modal when clicking outside of it
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
-            modal.style.display = 'none';
+            modal.classList.add('hidden'); // Hide the modal
         }
     });
 
+    // Handle form submission (optional)
+    const taskForm = document.getElementById('add-task-form'); // Assuming you wrap the input fields in a form
+    taskForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent the form from submitting the default way
+
+        const title = document.getElementById('task-title').value;
+        const estimatedTime = document.getElementById('estimatedTime').value;
+        const content = document.getElementById('content').value;
+
+        // Send the task data to your server (implement this part according to your setup)
+        try {
+            const response = await fetch('/add-task', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title, estimatedTime, content }),
+            });
+
+            if (response.ok) {
+                // Handle successful response
+                alert('Task added successfully!');
+                modal.classList.add('hidden'); // Hide the modal
+                taskForm.reset(); // Clear the form
+            } else {
+                alert('Failed to add task. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error adding task:', error);
+        }
+    });
 });
