@@ -6,7 +6,10 @@ import { uploadOnCloudinary } from "../utils/cloudinary.utils.js";
 
 const registerEmail = async function (req, res) {
     try {
-        const { email, password } = req.body;
+        const { token, email, password } = req.body;
+        if(!token == req.session.registerToken){
+            return res.status(400).json(new ApiError(400, "Unauthorized Access!"))
+        }
 
         if (!email || !password) {
             return res.status(400).json(new ApiError(400, "Email and password are required!"));
@@ -38,7 +41,6 @@ const registerUserInfo = async function (req, res) {
         const avatarArr = [cloudinaryupload.public_id, cloudinaryupload.url];
 
         const userId = req.session.userId;
-        console.log(userId)
         if (!userId) {
             return res.status(400).json(new ApiError(400, "Error!"));
         }

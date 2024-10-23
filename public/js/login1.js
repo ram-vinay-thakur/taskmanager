@@ -3,9 +3,10 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     console.log('hello')
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-
+    const tokenInput = document.getElementById('servertoken');
+    const token = tokenInput.value
     // Prepare the data to be sent
-    const formData = { email, password };
+    const formData = { email, password, token };
 
     try {
         // Send the POST request using Fetch API
@@ -23,7 +24,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
         } else {
             // Display error message if the registration failed
             const errorData = await response.json();
-            document.getElementById("error-message").textContent = errorData.message || "Error occurred. Please try again.";
+            alert(`${errorData.statuscode} ${errorData.message}`)
         }
     } catch (error) {
         console.error("Error during registration:", error);

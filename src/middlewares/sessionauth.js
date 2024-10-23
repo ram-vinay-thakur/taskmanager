@@ -1,4 +1,4 @@
-import cookieParser from "cookie-parser";
+import crypto from 'crypto';
 
 function sessionSecure(req, res, next) {
     if(req.session.completedRegistration){
@@ -12,6 +12,7 @@ function sessionSecure(req, res, next) {
 }
 
 function credentialSecure(req, res, next){
+    const token = crypto.randomBytes(32).toString('hex');
     if(req.session.completedRegistration){
         return res.redirect('/')
     }
